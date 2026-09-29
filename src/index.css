@@ -81,3 +81,53 @@ canvas {
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }
+
+/* ---------- 教学提示卡动画 ---------- */
+@keyframes tutorial-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes tutorial-slide-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+}
+
+.tutorial-card-enter {
+  animation: tutorial-slide-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.tutorial-card-exit {
+  animation: tutorial-slide-out 0.25s ease-in both;
+  pointer-events: none;
+}
+
+/* 展开 / 收起时描述区高度平滑过渡（grid-template-rows 技巧） */
+.tutorial-expand {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+  opacity: 0;
+}
+
+.tutorial-expand.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+
+.tutorial-expand > div {
+  overflow: hidden;
+}
