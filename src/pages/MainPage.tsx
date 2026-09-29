@@ -6,6 +6,7 @@ import { EcosystemStats } from '@/components/UI/EcosystemStats';
 import { FoodWebPanel } from '@/components/UI/FoodWebPanel';
 import { SpeciesInfoCard } from '@/components/UI/SpeciesInfoCard';
 import { ControlButtons } from '@/components/UI/ControlButtons';
+import { TutorialCard } from '@/components/UI/TutorialCard';
 import { useEcosystemSimulation } from '@/hooks/useEcosystemSimulation';
 import { useEcosystemStore, AQUARIUM_BOUNDS } from '@/store/useEcosystemStore';
 
@@ -65,6 +66,7 @@ export function MainPage() {
       <EcosystemStats />
       <FoodWebPanel />
       <SpeciesInfoCard />
+      <TutorialCard />
 
       {selectedSpeciesId && (
         <div className="absolute inset-0 pointer-events-none z-5">
